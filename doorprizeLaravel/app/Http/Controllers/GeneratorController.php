@@ -19,8 +19,24 @@ class GeneratorController extends Controller
     }
 
     function generator(Request $request){
-        $randomParticipant = Participant::inRandomOrder()->where('claimed', 0)->limit(5)->get();
-        $randomPrizes = Prize::inRandomOrder()->where('qty','>', 0)->limit(5)->get();
+        $randomParticipant = [];
+        $randomPrizes = [];
+        
+        $totalRequest = $request->totalGenerate;
+        $totalParticipant = Participant::all()->where('claimed', 0);
+
+       if($totalRequest == 0){
+        return view('generator', compact('randomParticipant', 'randomPrizes'));
+       } 
+
+       if($totalRequest > count($totalParticipant)){
+            $totalRequest = count($totalParticipant);
+       }
+
+        $randomParticipant = Participant::inRandomOrder()->where('claimed', 0)->limit($totalRequest)->get();
+        $randomPrizes = Prize::inRandomOrder()->where('qty','>', 0)->get();
+
+        //return(count($totalParticipant));
 
         //update data participant / prize
         //insert claimed data

@@ -15,7 +15,16 @@ create button claim all --}}
     <div class="text-center">
       <form action="/generator/generate" method="POST">
         @csrf
-        <button type="submit" class="btn btn-primary">Generate Prize</button>
+        <div class="row justify-content-center">
+          <div class="col-md-2">
+            <input type="number" class="form-control" name="totalGenerate" value=0>
+          </div>
+          <div class="col-md-3">
+            <button type="submit" class="btn btn-primary col">Generate Prize</button>
+          </div>
+         
+        </div>
+        
         <br><br>
         <table class="table">
           <thead>
@@ -28,9 +37,12 @@ create button claim all --}}
           </thead>
           <tbody>
               @if (count($randomParticipant) != 0 || count($randomPrizes) != 0)
-                  @for ($i = 0; $i < 5; $i++)
+
+
+
+                  @for ($i = 0; $i < count($randomParticipant); $i++)
                       <input type="hidden" name="participantId{{ $i }}" value="{{ $randomParticipant[$i]->id }}"> 
-                      <input type="hidden" name="prizeId{{ $i }}" value="{{ $randomPrizes[$i]->id }}"> 
+                      {{-- <input type="hidden" name="prizeId{{ $i }}" value="{{ $randomPrizes[$i]->id }}">  --}}
 
                       <tr>
                         <td>
@@ -53,7 +65,7 @@ create button claim all --}}
   
                         <td>
                           <div class="form-group">
-                            <input class="form-control" type="text" name="prizeName{{ $i }}" value="{{ $randomPrizes[$i]->prizeName }}" readonly>
+                            {{-- <input class="form-control" type="text" name="prizeName{{ $i }}" value="{{ $randomPrizes[$i]->prizeName }}" readonly> --}}
                           </div>
                         </td>
                       </tr>  
