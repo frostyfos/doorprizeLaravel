@@ -18,6 +18,7 @@ class GeneratorController extends Controller
     function index(){
         $randomParticipant = [];
         $randomPrizes = [];
+        
         $currentParticipant = Participant::where('claimed', 0)->get();
         $currentPrize = Prize::where('qty','>',0)->get();
         $currentPrizeQty = Prize::where('qty','>',0)->sum('qty');
@@ -34,17 +35,18 @@ class GeneratorController extends Controller
         $totalRequest = $request->totalGenerate;
         $totalParticipant = Participant::all()->where('claimed', 0);
 
-       if($totalRequest == 0){
+        $currentPrizeQty = Prize::where('qty','>',0)->sum('qty');
+
+        if($totalRequest == 0){
         return view('generator', compact('randomParticipant', 'randomPrizes'));
-       } 
+        } 
 
-       if($totalRequest > count($totalParticipant)){
-            $totalRequest = count($totalParticipant);
-       }
-
+        if($totalRequest > $currentPrizeQty){
+            $totalRequest = $currentPrizeQty;
+        }
+        
         $randomParticipant = Participant::inRandomOrder()->where('claimed', 0)->limit($totalRequest)->get();
         
-
         //return(count($totalParticipant));
 
         for ($i=0; $i < $totalRequest ; $i++) { 
@@ -74,12 +76,6 @@ class GeneratorController extends Controller
         $currentPrize = Prize::where('qty','>',0)->get();
         $currentPrizeQty = Prize::where('qty','>',0)->sum('qty');
 
-        // return $prizeList;
-
-        //update data participant / prize
-        //insert claimed data
-
-        
         return view('generator', compact('randomParticipant', 'prizeList', 'currentParticipant', 'currentPrize', 'currentPrizeQty'));
     }
 
