@@ -38,7 +38,7 @@
                     <td>{{ $counter+1 }}</td>
                     <td>{{ $participant->nik }}</td>
                     <td>{{ $participant->name }}</td>
-                    <td>{{ $participant->status == 0 ? 'Not Picked' : 'Picked' }}</td>
+                    <td>{{ $participant->claimed == 0 ? 'Not Picked' : 'Picked' }}</td>
                 </tr>
                 @php
                     $counter++;

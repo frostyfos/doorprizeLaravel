@@ -45,29 +45,10 @@ create button claim all --}}
                       {{-- <input type="hidden" name="prizeId{{ $i }}" value="{{ $randomPrizes[$i]->id }}">  --}}
 
                       <tr>
-                        <td>
-                          <div class="form-group">
-                            <input class="form-control" type="text"  value="{{ $i+1 }}" readonly>
-                          </div>
-                        </td>
-  
-                        <td>
-                          <div class="form-group">
-                            <input class="form-control" type="text" name="nik{{ $i }}" value="{{ $randomParticipant[$i]->nik }}" readonly>
-                          </div>
-                        </td>
-  
-                        <td>
-                          <div class="form-group">
-                            <input class="form-control" type="text" name="name{{ $i }}" value="{{ $randomParticipant[$i]->name }}" readonly>
-                          </div>
-                        </td>
-  
-                        <td>
-                          <div class="form-group">
-                            {{-- <input class="form-control" type="text" name="prizeName{{ $i }}" value="{{ $randomPrizes[$i]->prizeName }}" readonly> --}}
-                          </div>
-                        </td>
+                        <td>{{ $i+1 }}</td>
+                        <td>{{ $randomParticipant[$i]->nik }}</td>
+                        <td>{{ $randomParticipant[$i]->name }}</td>
+                        <td>{{ $prizeList[$i] }}</td>
                       </tr>  
                   @endfor
               @endif

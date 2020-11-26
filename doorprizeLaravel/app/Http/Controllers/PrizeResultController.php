@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\PrizeResult;
+use App\Exports\ResultExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 use Illuminate\Http\Request;
 
 class PrizeResultController extends Controller
@@ -15,6 +18,13 @@ class PrizeResultController extends Controller
     public function index()
     {
         //
+        $results = PrizeResult::all();
+        return view('result', compact('results'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new ResultExport, 'prize_result.xlsx');
     }
 
     /**

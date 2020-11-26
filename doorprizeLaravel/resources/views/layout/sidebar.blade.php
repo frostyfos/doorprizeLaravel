@@ -5,7 +5,7 @@
       <a href="/generator" class="list-group-item list-group-item-action bg-light">Doorprize Generator</a>
       <a href="/participant" class="list-group-item list-group-item-action bg-light">Participants</a>
       <a href="/prize" class="list-group-item list-group-item-action bg-light">Prizes</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light">Doorprize Summary</a>
+      <a href="/result" class="list-group-item list-group-item-action bg-light">Doorprize Summary</a>
     </div>
   </div>
   <!-- /#sidebar-wrapper -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Prize;
+use App\PrizeResult;
 use Illuminate\Http\Request;
 use File;
 use Session;
@@ -44,6 +45,7 @@ class PrizeController extends Controller
     {
         //
         Prize::truncate();
+        PrizeResult::truncate();
 
         $file = $request->file('file');
         

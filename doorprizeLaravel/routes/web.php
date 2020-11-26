@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'GeneratorController@index');
 
 Route::resource('participant', 'ParticipantController');
 Route::resource('prize', 'PrizeController');
 
 Route::get('/generator', 'GeneratorController@index');
 Route::post('/generator/generate', 'GeneratorController@generator');
+
+Route::get('/result', 'PrizeResultController@index');
+Route::get('/result/export', 'PrizeResultController@export');
