@@ -1,5 +1,8 @@
 # doorprizeLaravel
-1. install xammp(php and mysql) dan clone project
+1. install 
+   -xammp(php and mysql) 
+   -composer
+   clone project 
 2. create db di mysql <nama database>
 3. buka directory project di terminal
 4. composer install
