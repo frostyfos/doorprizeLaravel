@@ -3,6 +3,6 @@
 2. create db di mysql <nama database>
 3. buka directory project di terminal
 4. composer install
-5. create env file + configure
+5. create env file + configure (copy .env.example .env)
 6. php artisan migrate
 7. php artisan serve
