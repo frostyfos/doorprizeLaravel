@@ -7,3 +7,9 @@
 6. php artisan key:generate (untuk generate app_key nya)
 7. php artisan migrate (untuk create table participant, prize dan claim di db nnya)
 8. php artisan serve (untuk jalanin si aplikasi web nya, di arahin ke 127.0.0.1:8000 nanti)
+  
+Cara pakai
+1. buka xammp, start mysql
+2. buka terminal/cmd, arahin ke direcory project
+3. php artisan serve
+4. buka browser, 127.0.0.1:8000
